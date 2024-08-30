@@ -1,5 +1,9 @@
 import Link from "next/link";
 
+export const metadata = {
+  title: " خانه -وب اپلیکیشن مدیریت بلاگ ",
+};
+
 export default function Home() {
   return (
     <div className="flex flex-col items-center gap-8 py-16 px-2 ">

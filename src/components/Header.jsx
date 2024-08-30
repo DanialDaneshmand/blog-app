@@ -32,7 +32,7 @@ function Header() {
 export default Header;
 
 function Navbar({ navlinks }) {
-  const [isShow, setIsShow] = useState(true);
+  const [isShow, setIsShow] = useState(false);
   return (
     <nav className="relative  max-w-screen-lg w-full">
       <button
