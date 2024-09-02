@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import BlogList from "./_components/BlogList";
+import BlogList from "../_components/BlogList";
 import LoadingSpinner from "@/ui/Loading";
 
 async function Blogs() {

@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import CategoryList from "./_components/CategoryList";
+import CategoryList from "../_components/CategoryList";
 import LoadingSpinner from "@/ui/Loading";
 
 export const metadata = {
