@@ -37,6 +37,8 @@ function SignUp() {
   const { signup } = useUser();
   const submitHandler = async (data) => {
     await signup(data);
+    console.log(data);
+    
   };
   return (
     <div className=" w-full max-w-screen-sm sm:px-16  px-4">

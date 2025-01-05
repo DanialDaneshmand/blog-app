@@ -18,32 +18,32 @@ const userReducer = (state, action) => {
     case "loading":
       return {
         ...state,
-        loading: true,
+        isLoading: true,
       };
     case "rejected":
       return {
         ...state,
-        loading: false,
+        isLoading: false,
         error: action.payload,
       };
     case "signup":
       return {
         ...state,
-        loading: false,
+        isLoading: false,
         user: action.payload,
         isAuthenticated: true,
       };
     case "signin":
       return {
         ...state,
-        loading: false,
+        isLoading: false,
         user: action.payload,
         isAuthenticated: true,
       };
     case "user/loaded":
       return {
         ...state,
-        loading: false,
+        isLoading: false,
         user: action.payload||{},
         isAuthenticated: true,
       };
@@ -90,7 +90,7 @@ function UserProvider({ children }) {
     } catch (error) {
       const errorMessage = error?.response?.data?.message;
       dispatch({ type: "rejected", payload: error });
-      toast.error(errorMessage);
+      // toast.error(errorMessage);
     }
   }
 

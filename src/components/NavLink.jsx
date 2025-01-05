@@ -4,10 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
-function NavLink({ item }) {
+function NavLink({ item,setIsShow }) {
   const pathname = usePathname();
   return (
     <Link
+    onClick={()=>setIsShow(false)}
       href={item.path}
       className={`${
         pathname === item.path
