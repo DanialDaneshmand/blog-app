@@ -16,7 +16,8 @@ function Author({ item }) {
         />
         <span className=" text-sm text-slate-500">{item.author.name}</span>
       </div>
-      <div className=" flex items-center text-sm text-slate-500">
+      {
+        item.readingTime&&<div className=" flex items-center text-sm text-slate-500">
         <span className="ml-1">
           <FaRegClock />
         </span>
@@ -24,6 +25,7 @@ function Author({ item }) {
         <span>{item.readingTime}</span>
         <span>دقیقه</span>
       </div>
+      }
     </div>
   );
 }

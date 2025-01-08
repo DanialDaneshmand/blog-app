@@ -1,6 +1,7 @@
 import { getPostBySlug, getPosts } from "@/services/postServices";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import RelatedPosts from "../_components/RelatedPosts";
 
 export const dynamicParams = false;
 
@@ -21,9 +22,8 @@ export async function generateMetadata({ params, searchParams }, parent) {
 }
 
 async function SinglePost({ params }) {
-  await new Promise((res) => setTimeout(() => res(), 3000));
-
   const post = await getPostBySlug(params.slug);
+  console.log(post);
 
   if (!post) notFound();
   return (
@@ -40,6 +40,7 @@ async function SinglePost({ params }) {
           src={post.coverImageUrl}
         />
       </div>
+      {post.related.length > 0 && <RelatedPosts posts={post.related} />}
     </div>
   );
 }
