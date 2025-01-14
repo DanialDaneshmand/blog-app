@@ -41,7 +41,7 @@ function Navbar({ navlinks }) {
 
   return (
     <nav
-        className={`relative  max-w-screen-lg w-full transition-all duration-200 ${
+        className={`relative   max-w-screen-lg w-full transition-all duration-200 ${
           isLoading ? " blur-sm opacity-70 " : " blur-0 opacity-100 "
         }`}
       // className="relative  max-w-screen-lg w-full"

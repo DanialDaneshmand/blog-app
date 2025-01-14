@@ -28,7 +28,7 @@ function Search() {
           name="search"
           placeholder="جستجو ..."
           autoComplete="off"
-          className=" outline-none block w-full  border rounded-xl focus:border-slate-700 border-slate-500 p-2 focus:shadow-lg"
+          className=" outline-none block w-full  border rounded-xl focus:border-slate-700 border-slate-300 p-2 focus:shadow-lg"
         />
         <button
           style={{ marginRight: "-25px" }}
