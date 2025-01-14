@@ -69,3 +69,19 @@ a {
   width: 4px;
   background-color: rgb(var(--color-secondary-200));
 }
+
+/* styles of Drawer */
+
+.active{
+  width: 300px;
+  background: white;
+  padding: 20px;
+  transition: all;
+  transition-duration: 300ms;
+}
+
+.unactive{
+  width: 0;
+  transition: all;
+  transition-duration: 300ms;
+}

@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 
 export const metadata = {
@@ -5,6 +6,8 @@ export const metadata = {
 };
 
 export default function Home() {
+  
+  
   return (
     <div className="flex flex-col items-center gap-8 py-16 px-2 ">
       <h1 className=" text-2xl sm:text-4xl font-bold text-slate-800 mb-8">

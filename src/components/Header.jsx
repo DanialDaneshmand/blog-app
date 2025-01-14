@@ -12,13 +12,13 @@ import { HiOutlineUserCircle } from "react-icons/hi2";
 const navlinks = [
   {
     id: 1,
-    children: "خانه",
+    title: "خانه",
     path: "/",
     icon: <FaHouse />,
   },
   {
     id: 2,
-    children: "بلاگ ها",
+    title: "بلاگ ها",
     path: "/blogs",
     icon: <FaLayerGroup />,
   },
@@ -26,7 +26,7 @@ const navlinks = [
 
 function Header() {
   return (
-    <header className=" flex justify-center shadow-lg ">
+    <header className=" flex justify-center shadow-lg  ">
       <Navbar navlinks={navlinks} />
     </header>
   );
@@ -37,11 +37,13 @@ export default Header;
 function Navbar({ navlinks }) {
   const [isShow, setIsShow] = useState(false);
   const { user, isLoading } = useUser();
+  console.log(user);
+  
   
 
   return (
     <nav
-        className={`relative   max-w-screen-lg w-full transition-all duration-200 ${
+        className={`relative     max-w-screen-lg w-full transition-all duration-200 ${
           isLoading ? " blur-sm opacity-70 " : " blur-0 opacity-100 "
         }`}
       // className="relative  max-w-screen-lg w-full"

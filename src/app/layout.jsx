@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import vazirFont from "@/constants/localFont";
 import "./styles/globals.css";
 import Header from "@/components/Header";
@@ -17,12 +17,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fa" dir="rtl">
       <body className={`${vazirFont.variable} font-sans min-h-screen`}>
+        <Toaster />
         <UserProvider>
-          <Toaster />
-          <div>
-            <Header />
-          </div>
-          <div className=" container xl:max-w-screen-xl">{children}</div>
+          <div className="  w-full">{children}</div>
         </UserProvider>
       </body>
     </html>

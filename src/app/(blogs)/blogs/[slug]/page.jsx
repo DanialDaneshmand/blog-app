@@ -1,8 +1,8 @@
-import { getPostBySlug, getPosts } from "@/services/postServices";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import RelatedPosts from "../_components/RelatedPosts";
 import PostComments from "../_components/comment/PostComments";
+import { getPostBySlug, getPosts } from "@/services/postServices";
 
 export const dynamicParams = false;
 

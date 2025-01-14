@@ -1,17 +1,15 @@
-"use client";
-
+"use client"
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
-function NavLink({ item,setIsShow }) {
-  const pathname = usePathname();
+function NavlinkSideBar({item}) {
+    const pathname=usePathname()
   return (
     <Link
-    onClick={()=>setIsShow(false)}
-      href={item.path}
+      href={item.href}
       className={`${
-        pathname === item.path
+        pathname === item.href
           ? " text-blue-700"
           : "text-slate-400 hover:text-slate-600 "
       }`}
@@ -24,4 +22,4 @@ function NavLink({ item,setIsShow }) {
   );
 }
 
-export default NavLink;
+export default NavlinkSideBar;
