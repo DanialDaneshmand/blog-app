@@ -18,7 +18,7 @@ function ProfileHeader() {
       >
         <HiOutlineBars4 />
       </button>
-      <p className=" text-lg text-slate-600 font-bold ">
+      <p className=" text-base  md:text-lg text-slate-600 font-bold ">
         <span>سلام ;</span>
         <span> {user?.name}</span>
       </p>

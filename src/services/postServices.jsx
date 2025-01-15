@@ -1,5 +1,16 @@
 import http from "./httpServices";
 
+export async function getAllPostsApi(queries, options = {}) {
+  // Artificially delay a response for demo purposes.
+  // Don't do this in production :)
+
+  // console.log('Fetching revenue data...');
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
+
+  return http
+    .get(`/post/list?${queries}`, options)
+    .then(({ data }) => data.data);
+}
 export async function getPostBySlug(slug) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BASE_URL}/post/slug/${slug}`

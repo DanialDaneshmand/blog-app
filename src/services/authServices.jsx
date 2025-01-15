@@ -11,3 +11,7 @@ export const signInApi = async (data) => {
 export const getUserApi = async () => {
   return await http.get("/user/profile").then(({ data }) => data.data);
 };
+
+export async function getAllUsersApi(options) {
+  return http.get(`/user/list`, options).then(({ data }) => data.data);
+}

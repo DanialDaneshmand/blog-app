@@ -12,7 +12,7 @@ function Layout({ children }) {
         </div>
         <div className="col-span-12 lg:col-span-10">
           <ProfileHeader/>
-          <div className="bg-slate-200 h-full rounded-tr-xl p-5">{children}</div>
+          <div className="bg-slate-200 h-full rounded-tr-xl p-8">{children}</div>
         </div>
       </div>
     </div>
