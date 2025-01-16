@@ -1,7 +1,7 @@
 function Table({ children }) {
   return (
-    <div className="bg-secondary-0 overflow-x-auto">
-      <table>{children}</table>
+    <div className=" overflow-x-scroll">
+      <table className=" text-slate-500 overflow-x-scroll">{children}</table>
     </div>
   );
 }
@@ -16,11 +16,11 @@ function TableHeader({ children }) {
 }
 
 function TableBody({ children }) {
-  return <tbody>{children}</tbody>;
+  return <tbody className=" bg-[#efefef]">{children}</tbody>;
 }
 
 function TableRow({ children }) {
-  return <tr>{children}</tr>;
+  return <tr className="border-b">{children}</tr>;
 }
 
 Table.Header = TableHeader;
