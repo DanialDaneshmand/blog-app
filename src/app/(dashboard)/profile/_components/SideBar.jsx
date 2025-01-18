@@ -51,6 +51,7 @@ function SideBar({ onClose }) {
     <div className=" w-full">
       <div className=" border-b  pb-3 flex justify-between  lg:justify-center">
         <Link
+        onClick={onClose}
           className="flex text-slate-400 hover:text-slate-600 items-center gap-x-2"
           href="/"
         >
@@ -68,7 +69,7 @@ function SideBar({ onClose }) {
       </div>
       <div className="flex flex-col gap-y-8 pt-8">
         {sidebarNavs.map((item) => (
-          <NavlinkSideBar key={item.id} item={item} />
+          <NavlinkSideBar onClose={onClose} key={item.id} item={item} />
         ))}
         <button
           className=" hover:text-slate-600 flex items-center gap-x-2 text-slate-400"

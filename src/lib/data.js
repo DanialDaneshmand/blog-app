@@ -2,7 +2,7 @@
 
 import { getAllUsersApi } from "@/services/authServices";
 import { getAllCommentsApi } from "@/services/commentServices";
-import { getAllPostsApi } from "@/services/postServices";
+import { getAllPostsApi, getPosts } from "@/services/postServices";
 import setCookieOnReq from "@/utils/setCookieOnReq";
 import { cookies } from "next/headers";
 
@@ -13,7 +13,7 @@ export async function fetchCardData() {
   try {
     const data = await Promise.all([
       getAllUsersApi(options),
-      getAllPostsApi(),
+      getPosts(), 
       getAllCommentsApi(options),
     ]);
 

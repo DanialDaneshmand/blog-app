@@ -1,7 +1,7 @@
 export default function SvgComponent(props) {
   return (
     <svg
-      className="fill-primary-900"
+      className="fill-blue-600 text-blue-600"
       xmlns="http://www.w3.org/2000/svg"
       width={24}
       height={24}
@@ -13,6 +13,7 @@ export default function SvgComponent(props) {
         style={{
           transformOrigin: "center",
           animation: "spinner_svv2 .75s infinite linear",
+          color:"blue"
         }}
       />
     </svg>

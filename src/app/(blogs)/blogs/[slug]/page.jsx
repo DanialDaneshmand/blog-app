@@ -7,7 +7,7 @@ import { getPostBySlug, getPosts } from "@/services/postServices";
 export const dynamicParams = false;
 
 export async function generateStaticParams() {
-  const posts = await getPosts();
+  const {posts} = await getPosts();
   const slugs = posts.map((item) => {
     slug: item.slug;
   });

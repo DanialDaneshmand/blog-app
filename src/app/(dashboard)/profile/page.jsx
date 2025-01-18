@@ -1,29 +1,23 @@
-import { fetchCardData } from "@/lib/data";
-import React from "react";
-import {
-  HiOutlineChatBubbleBottomCenterText,
-  HiOutlineDocument,
-  HiOutlineUserGroup,
-} from "react-icons/hi2";
-import Card from "./_components/Card";
+import React, { Suspense } from "react";
+import PostsTable from "./posts/_/components/PostsTable";
+import Fallback from "@/ui/Fallback";
+import Cards from "./_components/Cards";
 
 async function Profile() {
-  const { numberOfPosts, numberOfUsers, numberOfComments } =
-    await fetchCardData();
   return (
-    <div className="grid gap-y-6 md:gap-y-0 md:grid-cols-3 gap-x-6">
-      <Card
-        icon={<HiOutlineUserGroup />}
-        title="کاربران"
-        value={numberOfUsers}
-      />
-      <Card icon={<HiOutlineDocument />} title="پست ها" value={numberOfPosts} />
-      <Card
-        icon={<HiOutlineChatBubbleBottomCenterText />}
-        title="نظرات"
-        value={numberOfComments}
-      />
-    </div>
+    <>
+      <p className=" text-xl text-slate-700 mb-5"> داشبورد</p>
+
+      <Suspense fallback={<Fallback />}>
+        <Cards />
+      </Suspense>
+      <div className="mt-10">
+        <p className=" text-xl text-slate-700 my-4">اخرین پست ها</p>
+        <Suspense fallback={<Fallback />}>
+          <PostsTable queries="sort=latest&limit=5" />
+        </Suspense>
+      </div>
+    </>
   );
 }
 

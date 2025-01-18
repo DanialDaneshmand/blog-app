@@ -11,7 +11,7 @@ async function Category({ params, searchParams }) {
     queryString.stringify(searchParams) + "&" + `categorySlug=${categorySlug}`;
   const cookiesStore = cookies();
   const options = setCookieOnReq(cookiesStore);
-  const posts = await getPosts(queries, options);
+  const {posts} = await getPosts(queries, options);
   const { search } = searchParams;
 
   return (

@@ -1,16 +1,16 @@
-import { getAllPostsApi } from "@/services/postServices";
+import { getPosts } from "@/services/postServices";
 import Empty from "@/ui/Empty";
 import Table from "@/ui/Table";
 import PostRow from "./PostRow";
 
-async function PostsTable() {
-  const { posts } = await getAllPostsApi();
+async function PostsTable({ queries }) {
+  const  {posts}  = await getPosts(queries);
 
   if (!posts.length) return <Empty resourceName="پستی" />;
 
   return (
-    <div >
-      <Table >
+    <div>
+      <Table>
         <Table.Header>
           <th>#</th>
           <th>عنوان</th>

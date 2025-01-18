@@ -10,7 +10,7 @@ async function Blogs({ searchParams }) {
   const queries = queryString.stringify(searchParams);
   const cookiesStore = cookies();
   const options = setCookieOnReq(cookiesStore);
-  const posts = await getPosts(queries, options);
+  const {posts} = await getPosts(queries, options);
   return (
     <div>
       <Suspense fallback={<LoadingSpinner />}>

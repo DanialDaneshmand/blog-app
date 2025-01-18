@@ -3,10 +3,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 
-function NavlinkSideBar({item}) {
+function NavlinkSideBar({item,onClose}) {
     const pathname=usePathname()
   return (
     <Link
+    onClick={onClose}
       href={item.href}
       className={`${
         pathname === item.href
