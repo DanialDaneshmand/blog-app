@@ -1,9 +1,10 @@
+"use client"
 import { createComment } from "@/lib/actions";
 import Button from "@/ui/Button";
 import SvgComponent from "@/ui/SvgComponent";
 import TextArea from "@/ui/TextArea";
 import React, { useState } from "react";
-import {  useFormState, useFormStatus } from "react-dom";
+import { useFormState, useFormStatus } from "react-dom";
 import toast from "react-hot-toast";
 
 const initialState = {
@@ -17,17 +18,18 @@ function CommentForm({ parentId, postId, onClose }) {
   const [state, formAction] = useFormState(createComment, initialState);
   useState(() => {
     console.log(state);
-    
+
     if (state?.message) {
       toast.success(state.message);
       console.log(state.message,"danial");
-      
+
       onClose();
     }
     if (state?.error) {
       toast.error(state.error);
     }
   }, [state]);
+  
   return (
     <div className=" py-5">
       <form
@@ -43,7 +45,7 @@ function CommentForm({ parentId, postId, onClose }) {
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
-        {pending ? (
+        {false ? (
           <div className=" flex items-center gap-x-4">
             <Button
               onClick={onClose}

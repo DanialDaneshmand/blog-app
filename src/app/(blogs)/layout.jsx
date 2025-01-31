@@ -6,7 +6,9 @@ function Layout({ children }) {
     <div className=" ">
         <Header />
       
+      <div className="px-8">
       {children}
+      </div>
     </div>
   );
 }

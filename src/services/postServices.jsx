@@ -11,14 +11,14 @@ export async function getAllPostsApi(queries, options = {}) {
     .get(`/post/list?${queries}`, options)
     .then(({ data }) => data.data);
 }
-export async function getPostBySlug(slug) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_BASE_URL}/post/slug/${slug}`
-  );
-  const { data } = await res.json();
-  const { posts } = data || {};
-  return posts;
-}
+// export async function getPostBySlug(slug) {
+//   const res = await fetch(
+//     `${process.env.NEXT_PUBLIC_BASE_URL}/post/slug/${slug}`
+//   );
+//   const { data } = await res.json();
+//   const { posts } = data || {};
+//   return posts;
+// }
 
 export async function getPosts(queries, options) {
   const res = await fetch(
@@ -38,3 +38,12 @@ export async function likePostApi(postId) {
 export async function bookmarkPostApi(postId) {
   return http.post(`/post/bookmark/${postId}`).then(({ data }) => data.data);
 }
+
+export async function createPostApi(data) {
+  return http.post(`/post/create`,data).then(({ data }) => data.data);
+}
+
+export async function getPostBySlugApi(slug) {
+  return http.get(`/post/slug/freelancering`).then(({ data }) => data.data);
+}
+

@@ -4,6 +4,7 @@ import "./styles/globals.css";
 import Header from "@/components/Header";
 import { Toaster } from "react-hot-toast";
 import UserProvider from "@/context/userContext";
+import ReactQueryProvider from "@/providers/ReactQueryProvider";
 
 // export const metadata = {
 //   title: {
@@ -18,9 +19,11 @@ export default function RootLayout({ children }) {
     <html lang="fa" dir="rtl">
       <body className={`${vazirFont.variable} font-sans min-h-screen`}>
         <Toaster />
-        <UserProvider>
-          <div className="  w-full">{children}</div>
-        </UserProvider>
+        <ReactQueryProvider>
+          <UserProvider>
+            <div className="  w-full">{children}</div>
+          </UserProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );

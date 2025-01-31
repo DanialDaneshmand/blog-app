@@ -37,7 +37,6 @@ export default Header;
 function Navbar({ navlinks }) {
   const [isShow, setIsShow] = useState(false);
   const { user, isLoading } = useUser();
-  console.log(user);
   
   
 
