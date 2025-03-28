@@ -4,7 +4,7 @@ import React from "react";
 
 function ImageCover({ item }) {
   return (
-    <div className=" relative aspect-video overflow-hidden rounded-md">
+    <div style={{zIndex:10}} className=" relative aspect-video  overflow-hidden rounded-md">
       <Link href={`/blogs/${item.slug}`}>
         <Image
           className="mb-4 object-cover object-center hover:scale-110 transition-all duration-300"

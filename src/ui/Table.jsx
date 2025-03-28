@@ -10,17 +10,17 @@ export default Table;
 function TableHeader({ children }) {
   return (
     <thead>
-      <tr className="title-row">{children}</tr>
+      <tr className="title-row dark:text-slate-400">{children}</tr>
     </thead>
   );
 }
 
 function TableBody({ children }) {
-  return <tbody className=" bg-[#efefef]">{children}</tbody>;
+  return <tbody className=" bg-[#efefef] dark:bg-slate-500 dark:text-slate-300">{children}</tbody>;
 }
 
 function TableRow({ children }) {
-  return <tr className="border-b">{children}</tr>;
+  return <tr className="border-b dark:border-b-slate-400">{children}</tr>;
 }
 
 Table.Header = TableHeader;

@@ -9,8 +9,8 @@ export default function Home() {
   
   
   return (
-    <div className="flex flex-col items-center gap-8 py-16 px-2 ">
-      <h1 className=" text-2xl sm:text-4xl font-bold text-slate-800 mb-8">
+    <div className="flex  flex-col items-center gap-8 py-16 px-2 ">
+      <h1 className=" text-2xl sm:text-4xl font-bold dark:text-slate-400 text-slate-800 mb-8">
         اپلیکیشن مدیریت بلاگ{" "}
       </h1>
 
@@ -19,7 +19,7 @@ export default function Home() {
         <p>بتونی بلاگ بسازی-کامنت بذاری و درپنلت همه اتفاقا رو رصد کنی !</p>
       </div>
       <div className="flex gap-x-4">
-        <button className="border  block px-3 py-2 outline-none text-sm rounded-xl text-slate-400 ">
+        <button className="border dark:border-slate-400  block px-3 py-2 outline-none text-sm rounded-xl text-slate-400 ">
           <Link href="/blogs" className=" py-8">
             مطالعه بلاگ ها
           </Link>

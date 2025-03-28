@@ -6,13 +6,13 @@ import Cards from "./_components/Cards";
 async function Profile() {
   return (
     <>
-      <p className=" text-xl text-slate-700 mb-5"> داشبورد</p>
+      <p className=" text-xl text-slate-700 mb-5 dark:text-slate-300"> داشبورد</p>
 
       <Suspense fallback={<Fallback />}>
         <Cards />
       </Suspense>
       <div className="mt-10">
-        <p className=" text-xl text-slate-700 my-4">اخرین پست ها</p>
+        <p className=" text-xl text-slate-700 my-4 dark:text-slate-300">اخرین پست ها</p>
         <Suspense fallback={<Fallback />}>
           <PostsTable queries="sort=latest&limit=5" />
         </Suspense>

@@ -15,8 +15,8 @@ function TextFeild({
   ...rest
 }) {
   return (
-    <div className="my-8 w-[500px]">
-      <label className=" block mb-2 text-slate-600" htmlFor={name}>
+    <div className="my-8 w-full">
+      <label className=" dark:text-slate-300 block mb-2 text-slate-600" htmlFor={name}>
         {label}
         {isRequired && <span className=" text-red-600">*</span>}
       </label>
@@ -30,7 +30,7 @@ function TextFeild({
         required={isRequired}
         value={value}
         dir={dir}
-        className={` border py-2 px-3  outline-none rounded-lg my-2  ${
+        className={` dark:bg-slate-600 dark:border-slate-500 border py-2 px-3  outline-none rounded-lg my-2  ${
           dir === "rtl" ? "text-right" : "text-left"
         } ${className}`}
       />

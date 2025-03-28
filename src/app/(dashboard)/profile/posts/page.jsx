@@ -18,7 +18,7 @@ async function PostsPage({searchParams}) {
         <Search />
         <CreatePost />
       </div>
-      <div >
+      <div className=" ">
       <Suspense fallback={<Fallback />}>
         <PostsTable queries={query}/>
       </Suspense>

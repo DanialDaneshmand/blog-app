@@ -9,7 +9,7 @@ function NotFound() {
   return (
     <div className=" w-full flex justify-center pt-32">
       <div>
-        <p className=" text-slate-700 text-lg font-bold">
+        <p className=" text-slate-700 text-lg font-bold dark:text-slate-300">
           صفحه ای که دنبالش بودید پیدا نشد !
         </p>
         <button className=" flex items-center gap-x-3 mt-4" onClick={moveBack}>

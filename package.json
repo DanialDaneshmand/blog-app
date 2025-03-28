@@ -15,6 +15,7 @@
     "axios": "^1.7.7",
     "classnames": "^2.5.1",
     "heroicons": "^2.1.5",
+    "js-cookie": "^3.0.5",
     "next": "14.2.6",
     "query-string": "^9.1.1",
     "react": "^18",

@@ -37,7 +37,7 @@ function SignIn() {
   };
   return (
     <div className=" w-full max-w-screen-sm sm:px-16  px-4">
-      <h1 className=" text-2xl font-bold text-slate-700 my-8"> صفحه ورود</h1>
+      <h1 className=" text-2xl font-bold text-slate-700 my-8 dark:text-slate-300"> صفحه ورود</h1>
       <form onSubmit={handleSubmit(submitHandler)}>
         <TextFeild
           register={register}
@@ -71,7 +71,7 @@ function SignIn() {
             </button>
           )}
         </div>
-        <Link href="/signup" className=" text-slate-600 text-sm my-4 block">
+        <Link href="/signup" className="dark:text-slate-300 text-slate-600 text-sm my-4 block">
           هنوز ثبت نام نکرده اید ؟
         </Link>
       </form>

@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 import { HiOutlineDocumentText } from "react-icons/hi";
@@ -11,6 +12,9 @@ import {
   HiOutlineUsers,
 } from "react-icons/hi2";
 import NavlinkSideBar from "./NavlinkSideBar";
+import { logoutApi } from "@/services/authServices";
+import { useRouter } from "next/navigation";
+import { useUser } from "@/context/userContext";
 
 const sidebarNavs = [
   {
@@ -47,12 +51,18 @@ const sidebarNavs = [
 ];
 
 function SideBar({ onClose }) {
+  const router = useRouter();
+  const { removeUser } = useUser();
+  const handleLogout = async () => {
+    removeUser();
+    router.push("/");
+  };
   return (
-    <div className=" w-full">
-      <div className=" border-b  pb-3 flex justify-between  lg:justify-center">
+    <div className=" w-full dark:bg-slate-800">
+      <div className=" border-b dark:border-b-slate-500  pb-3 flex justify-between  lg:justify-center">
         <Link
-        onClick={onClose}
-          className="flex text-slate-400 hover:text-slate-600 items-center gap-x-2"
+          onClick={onClose}
+          className="flex text-slate-400 hover:text-slate-600 hover:dark:text-slate-300 items-center gap-x-2"
           href="/"
         >
           <span className=" text-2xl">
@@ -72,8 +82,8 @@ function SideBar({ onClose }) {
           <NavlinkSideBar onClose={onClose} key={item.id} item={item} />
         ))}
         <button
-          className=" hover:text-slate-600 flex items-center gap-x-2 text-slate-400"
-          href="/"
+          className=" hover:text-slate-600 flex items-center gap-x-2 hover:dark:text-slate-300 text-slate-400"
+          onClick={handleLogout}
         >
           <span>
             <HiOutlineArrowLeftStartOnRectangle className=" h-5 w-5" />

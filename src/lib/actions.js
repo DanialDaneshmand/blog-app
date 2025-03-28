@@ -5,28 +5,26 @@ import setCookieOnReq from "@/utils/setCookieOnReq";
 import { revalidatePath } from "next/cache";
 import { cookies } from "next/headers";
 
-export async function createComment(prevState, { formData, parentId, postId }) {
+export async function createComment(prevState, { formData, postId, parentId }) {
   const rawFormData = {
-    text: formData.get("text"),
-    postId,
     parentId,
+    postId,
+    text: formData.get("text"),
   };
-  // console.log(rawFormData);
   const cookiesStore = cookies();
   const options = setCookieOnReq(cookiesStore);
+  //   console.log(options);
+
   try {
     const { message } = await createCommentApi(rawFormData, options);
-    revalidatePath("/blogs/[slug]");
-    console.log(message);
-
+    revalidatePath("/blogs/*");
     return {
       message,
     };
   } catch (err) {
-    const error = err?.response?.data?.message;
-    console.log(error);
-    return {
-      error,
-    };
+    const error = "کامنت را به درستی وارد کنید!";
+    return{
+        error
+    }
   }
 }

@@ -44,6 +44,14 @@ export async function createPostApi(data) {
 }
 
 export async function getPostBySlugApi(slug) {
-  return http.get(`/post/slug/freelancering`).then(({ data }) => data.data);
+  return http.get(`/post/slug/${slug}`).then(({ data }) => data.data);
 }
 
+
+export async function editPostApi({id,data}) {
+  return http.patch(`/post/update/${id}`,data).then(({ data }) => data.data);
+}
+
+export async function getPostById(id) {
+  return http.get(`/post/${id}`).then(({ data }) => data.data);
+}

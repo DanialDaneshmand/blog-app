@@ -8,7 +8,7 @@ function TextArea({
 }) {
   return (
     <div className="textField">
-      <label htmlFor={name} className="text-secondary-600 text-sm">
+      <label htmlFor={name} className=" text-slate-600 dark:text-slate-300 text-sm">
         {label}
         {isRequired && <span className="text-red-600">*</span>}
       </label>
@@ -16,7 +16,7 @@ function TextArea({
         name={name}
         id={name}
         dir={dir}
-        className={`block border outline-none rounded-xl p-4 w-full bg-[#efefef] mt-4  min-h-[180px] leading-8 ${
+        className={` dark:bg-slate-500 dark:border-none dark:text-slate-300 block border outline-none rounded-xl p-4 w-full bg-[#efefef] mt-4  min-h-[180px] leading-8 ${
           dir === "ltr" ? "text-left" : "text-right"
         }`}
         value={value}

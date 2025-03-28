@@ -24,9 +24,9 @@ export function DeletePost(id) {
   );
 }
 
-export function EditPost(id = 1) {
+export function EditPost({id}) {
   return (
-    <Link href={`/profile/posts/edit`}>
+    <Link href={`/profile/posts/${id}/edit`}>
       <Button classes=" text-xl">
         <HiOutlinePencil />
       </Button>

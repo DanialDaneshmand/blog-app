@@ -7,12 +7,12 @@ function Layout({ children }) {
   return (
     <div className="  h-screen">
       <div className=" grid h-full  grid-cols-12  w-full ">
-        <div className=" col-span-2 hidden lg:block p-5 text-slate-500">
+        <div className=" col-span-2 dark:bg-slate-800 hidden lg:block p-5 text-slate-500">
           <SideBar/>
         </div>
         <div className="col-span-12 lg:col-span-10">
           <ProfileHeader/>
-          <div className="bg-slate-200 h-full lg:rounded-tr-xl p-8">{children}</div>
+          <div className="bg-slate-200 h-full lg:rounded-tr-xl p-8 dark:bg-slate-700">{children}</div>
         </div>
       </div>
     </div>

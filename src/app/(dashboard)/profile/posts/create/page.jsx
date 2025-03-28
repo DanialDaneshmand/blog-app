@@ -17,7 +17,7 @@ function Create() {
       />
       <h1 className="text-slate-700 font-bold text-2xl mb-6">ایجاد پست جدید</h1>
       <div className=" grid grid-cols-12">
-        <div className=" col-span-12 md:col-span-6 rounded-lg bg-[#efefef] p-4">
+        <div className=" col-span-12 md:col-span-6 rounded-lg bg-[#efefef] p-4 dark:bg-slate-600">
           <CreatePostPage />
         </div>
       </div>

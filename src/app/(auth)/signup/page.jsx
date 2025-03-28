@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useUser } from "@/context/userContext";
+import Link from "next/link";
 
 // export const metadata = {
 //   title: "ثبت نام",
@@ -37,12 +38,11 @@ function SignUp() {
   const { signup } = useUser();
   const submitHandler = async (data) => {
     await signup(data);
-    console.log(data);
     
   };
   return (
     <div className=" w-full max-w-screen-sm sm:px-16  px-4">
-      <h1 className=" text-2xl font-bold text-slate-700 my-8">ثبت نام</h1>
+      <h1 className=" text-2xl font-bold text-slate-700 my-8 dark:text-slate-300">ثبت نام</h1>
       <form onSubmit={handleSubmit(submitHandler)}>
         <TextFeild
           register={register}
@@ -84,7 +84,7 @@ function SignUp() {
             </button>
           )}
         </div>
-        <Link href="/signin" className=" text-slate-600 text-sm my-4 block">
+        <Link href="/signin" className="dark:text-slate-300 text-slate-600 text-sm my-4 block">
           صفحه ورود
         </Link>
       </form>

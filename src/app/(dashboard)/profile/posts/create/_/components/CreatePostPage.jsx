@@ -6,13 +6,15 @@ import RHFSelect from "@/ui/RHFSelect";
 import RHFTextField from "@/ui/RHFTextField";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { HiOutlineXMark } from "react-icons/hi2";
 import * as yup from "yup";
 import useCreatePost from "../hooks/useCreatePost";
 import SvgComponent from "@/ui/SvgComponent";
 import { useRouter } from "next/navigation";
+import useEditPost from "../hooks/useEditPost";
+import { imageUrlToFile } from "@/hooks/fileFormatter";
 
 const schema = yup
   .object({
@@ -39,11 +41,39 @@ const schema = yup
   })
   .required();
 
-function CreatePostPage() {
+function CreatePostPage({ postToEdit }) {
+    const { _id: editId } = postToEdit||false;
+  const isEditSession = Boolean(editId);
+  const {
+    title,
+    text,
+    briefText,
+    slug,
+    readingTime,
+    category,
+    coverImage,
+    coverImageUrl: prevPostCoverImageUrl,
+  } = postToEdit||{};
+  let editValues = {};
+  if (isEditSession) {
+    editValues = {
+      title,
+      text,
+      briefText,
+      slug,
+      readingTime,
+      category: category._id,
+      coverImage,
+    };
+  }
   const { categories } = useCategories();
-  const [coverImageUrl, setCoverImageUrl] = useState(null);
+  const [coverImageUrl, setCoverImageUrl] = useState(
+    prevPostCoverImageUrl || {}
+  );
   const { isCreating, createPost } = useCreatePost();
-  const router =useRouter()
+  const { editPost, isEditing } = useEditPost();
+  const router = useRouter();
+
   const {
     setValue,
     control,
@@ -54,6 +84,7 @@ function CreatePostPage() {
   } = useForm({
     resolver: yupResolver(schema),
     mode: "onTouched",
+    defaultValues: editValues,
   });
 
   const submitHandler = (data) => {
@@ -61,12 +92,33 @@ function CreatePostPage() {
     for (const key in data) {
       formData.append(key, data[key]);
     }
-    createPost(formData,{
-      onSuccess:()=>{
-        router.push("/profile/posts")
-      }
-    });
+    if (isEditSession) {
+      editPost(
+        { id: editId, data: formData },
+        {
+          onSuccess: () => {
+            reset();
+            router.push("/profile/posts");
+          },
+        }
+      );
+    } else {
+      createPost(formData, {
+        onSuccess: () => {
+          router.push("/profile/posts");
+        },
+      });
+    }
   };
+  useEffect(() => {
+    if (prevPostCoverImageUrl) {
+      async function fetchMyAPI() {
+        const file = await imageUrlToFile(prevPostCoverImageUrl);
+        setValue("coverImage", file);
+      }
+      fetchMyAPI();
+    }
+  }, []);
   return (
     <form onSubmit={handleSubmit(submitHandler)}>
       <RHFTextField
@@ -128,7 +180,7 @@ function CreatePostPage() {
             label="کاور پست"
             name="coverImage"
             value={value?.fileName}
-            classes="cursor-pointer border-2 mt-10 mb-5  border-blue-600 rounded-lg px-3 py-2 text-blue-600 flex items-center justify-center gap-x-2"
+            classes="cursor-pointer dark:bg-slate-500 border-2 mt-10 mb-5  border-blue-600 rounded-lg px-3 py-2 text-blue-600 flex items-center justify-center gap-x-2"
             onChange={(event) => {
               const file = event.target.files[0];
               onChange(file);

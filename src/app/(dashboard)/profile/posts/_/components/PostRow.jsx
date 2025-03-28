@@ -32,7 +32,7 @@ function PostRow({ post, index }) {
       </td>
       <td >
         <DeletePost />
-        <EditPost />
+        <EditPost id={post._id}/>
       </td>
     </Table.Row>
   );

@@ -5,7 +5,7 @@ import { HiOutlineUserCircle } from "react-icons/hi2";
 
 function Author({ item }) {
   return (
-    <div className=" flex justify-between my-2 items-center">
+    <div className=" dark:text-slate-400 flex justify-between my-2 items-center">
       <div className=" flex items-center gap-x-2">
         <div>
           {item.author.avatarUrl ? (
@@ -22,10 +22,10 @@ function Author({ item }) {
             </span>
           )}
         </div>
-        <span className=" text-sm text-slate-500">{item.author.name}</span>
+        <span className=" text-sm text-slate-500 dark:text-slate-400">{item.author.name}</span>
       </div>
       {item.readingTime && (
-        <div className=" flex items-center text-sm text-slate-500">
+        <div className=" flex dark:text-slate-400 items-center text-sm text-slate-500">
           <span className="ml-1">
             <FaRegClock />
           </span>

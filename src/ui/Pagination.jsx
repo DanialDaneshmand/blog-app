@@ -64,7 +64,7 @@ export default function Pagination({ totalPages }) {
 
 function PaginationNumber({ page, href, isActive, position }) {
   const className = classNames(
-    "flex h-14 w-10 py-1 px-3  items-center justify-center text-sm border border-slate-400 text-slate-400",
+    "flex  w-10 py-1 px-3  items-center justify-center text-sm border border-slate-400 text-slate-400",
     {
       "rounded-r-md": position === "first" || position === "single",
       "rounded-l-md": position === "last" || position === "single",

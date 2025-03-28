@@ -9,7 +9,7 @@ export default function Breadcrumbs({ breadcrumbs }) {
             key={breadcrumb.href}
             aria-current={breadcrumb.active}
             className={`${
-              breadcrumb.active ? "text-slate-700" : "text-slate-500"
+              breadcrumb.active ? "text-slate-700 dark:text-slate-400" : "text-slate-500 dark:text-slate-300"
             }
           flex gap-x-2
             `}

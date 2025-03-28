@@ -28,12 +28,12 @@ function Search() {
           name="search"
           placeholder="جستجو ..."
           autoComplete="off"
-          className=" outline-none block w-full  border rounded-xl focus:border-slate-700 border-slate-300 p-2 focus:shadow-lg"
+          className=" dark:bg-slate-600 dark:border-slate-500 outline-none block w-full  border rounded-xl focus:border-slate-700 border-slate-300 p-2 focus:shadow-lg"
         />
         <button
           style={{ marginRight: "-25px" }}
           type="submit"
-          className="  text-slate-500"
+          className="dark:text-slate-300 text-slate-500"
         >
           <HiMagnifyingGlass />
         </button>

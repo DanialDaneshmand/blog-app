@@ -26,10 +26,10 @@ function PostComments({ post: { comments, _id: postId } }) {
   return (
     <div className=" py-10">
       <div className="w-full flex justify-between">
-        <p className=" text-2xl font-bold text-slate-600">نظرات</p>
+        <p className=" text-2xl font-bold text-slate-600 dark:text-slate-300">نظرات</p>
         <button
           onClick={() => handleAddNewComment(null)}
-          className=" border border-slate-300 text-slate-400 rounded-lg py-2 px-4 text-sm flex items-center gap-x-2"
+          className=" border dark:text-slate-300 border-slate-300 text-slate-400 rounded-lg py-2 px-4 text-sm flex items-center gap-x-2"
         >
           <span className="text-xl"> <HiOutlineQuestionMarkCircle/></span>
           <span>ثبت نظر جدید</span>
@@ -41,7 +41,7 @@ function PostComments({ post: { comments, _id: postId } }) {
       </Modal>
       <div className="mt-10">
         {comments.length > 0 ? (
-          <div className=" bg-white rounded-xl p-5">
+          <div className=" bg-white dark:bg-slate-600 rounded-xl p-5">
             {comments.map((comment) => (
               <div key={comment._id}>
                 <div className="mt-4">
@@ -57,7 +57,7 @@ function PostComments({ post: { comments, _id: postId } }) {
             ))}
           </div>
         ) : (
-          <p className=" text-slate-500 ">نظری برای این پست وجود ندارد!</p>
+          <p className=" text-slate-500 dark:text-slate-300">نظری برای این پست وجود ندارد!</p>
         )}
       </div>
     </div>
@@ -68,12 +68,12 @@ export default PostComments;
 
 function AnsweredComment({ item }) {
   return (
-    <div className="flex pr-6 ">
-      <div className=" border-l-4 border-gray-300 rounded-full  "></div>
+    <div className="flex pr-6 dark:bg-slate-600">
+      <div className=" border-l-4 border-gray-300 dark:border-gray-500  rounded-full  "></div>
       <div className=" w-6   flex items-center">
-        <div className="w-6  border-b-4 border-gray-300"></div>
+        <div className="w-6  border-b-4 border-gray-300 dark:border-gray-500"></div>
       </div>
-      <div className="w-full mt-4">
+      <div className="w-full mt-4 dark:bg-slate-600">
         <Comment comment={item} />
       </div>
     </div>

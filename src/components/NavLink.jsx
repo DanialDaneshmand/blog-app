@@ -13,7 +13,7 @@ function NavLink({ item,setIsShow }) {
       className={`${
         pathname === item.path
           ? " text-blue-700"
-          : "text-slate-400 hover:text-slate-600 "
+          : "text-slate-400 hover:text-slate-600 hover:dark:text-slate-300 "
       }`}
     >
       <p className={` flex items-center gap-x-2 `}>

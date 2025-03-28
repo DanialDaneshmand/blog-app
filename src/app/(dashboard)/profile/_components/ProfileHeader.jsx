@@ -13,12 +13,12 @@ function ProfileHeader() {
   return (
     <div className=" p-5 flex justify-between items-center">
       <button
-        className=" text-slate-500 text-2xl block lg:hidden"
+        className=" text-slate-500 dark:text-slate-300 text-2xl block lg:hidden"
         onClick={() => setShowDrawer(!showDrawer)}
       >
         <HiOutlineBars4 />
       </button>
-      <p className=" text-base  md:text-lg text-slate-600 font-bold ">
+      <p className=" text-base  dark:text-slate-300 md:text-lg text-slate-600 font-bold ">
         <span>سلام ;</span>
         <span> {user?.name}</span>
       </p>
@@ -33,7 +33,7 @@ function ProfileHeader() {
           />
         ) : (
           <span>
-            <HiOutlineUserCircle className="h-8 w-8 text-slate-500" />
+            <HiOutlineUserCircle className="h-8 w-8 dark:text-slate-300 text-slate-500" />
           </span>
         )}
       </p>

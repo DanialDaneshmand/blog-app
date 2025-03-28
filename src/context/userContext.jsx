@@ -1,6 +1,6 @@
 "use client";
 import { createContext, useEffect } from "react";
-import { getUserApi, signInApi, signUpApi } from "@/services/authServices";
+import { getUserApi, logoutApi, signInApi, signUpApi } from "@/services/authServices";
 import React, { useContext, useReducer } from "react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
@@ -46,6 +46,12 @@ const userReducer = (state, action) => {
         isLoading: false,
         user: action.payload||{},
         isAuthenticated: true,
+      };
+      case "remove":
+      return {
+        ...state,
+        isLoading: false,
+        user: null
       };
   }
 };
@@ -93,6 +99,17 @@ function UserProvider({ children }) {
       // toast.error(errorMessage);
     }
   }
+  async function removeUser() {
+    dispatch({ type: "loading" });
+    try {
+       await logoutApi();
+      dispatch({ type: "remove" });
+    } catch (error) {
+      const errorMessage = error?.response?.data?.message;
+      dispatch({ type: "rejected", payload: error });
+      // toast.error(errorMessage);
+    }
+  }
 
   useEffect(() => {
     async function fetchData() {
@@ -102,7 +119,7 @@ function UserProvider({ children }) {
   }, []);
   return (
     <UserContext.Provider
-      value={{ user, isAuthenticated, isLoading, signin, signup }}
+      value={{ user, isAuthenticated, isLoading, signin, signup ,removeUser}}
     >
       {children}
     </UserContext.Provider>

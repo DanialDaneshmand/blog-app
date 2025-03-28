@@ -9,17 +9,17 @@ export const metadata = {
 
 function Layout({ children }) {
   return (
-    <div className=" p-8">
+    <div className=" p-8 ">
       <div className=" my-10 grid grid-cols-1 sm:grid-cols-3 w-full ">
         <div className="">
-          <p>لیست بلاگ ها</p>
+          <p className=" dark:text-slate-300 mb-2 sm:mb-0 ">لیست بلاگ ها</p>
         </div>
         <div className=" ">
           <Search />
         </div>
         <div></div>
       </div>
-      <div className=" grid grid-cols-12">
+      <div className=" grid grid-cols-12 ">
         <div className="  col-span-12 lg:col-span-4 xl:col-span-3">
           <Suspense fallback={<LoadingSpinner />}>
             <CategoryList />

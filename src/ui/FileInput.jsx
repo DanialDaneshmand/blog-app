@@ -15,7 +15,7 @@ function FileInput({
     <>
       <label
         htmlFor="file-upload"
-        className={`cursor-pointer border-2  border-blue-600 rounded-lg px-3 py-2 text-blue-600 flex items-center justify-center gap-x-2 ${classes}`}
+        className={`cursor-pointer border-2  border-blue-600 dark:border-blue-400 rounded-lg px-3 py-2 text-blue-600 dark:text-blue-400 flex items-center justify-center gap-x-2 ${classes}`}
       >
         {label}
         <HiArrowUpTray />

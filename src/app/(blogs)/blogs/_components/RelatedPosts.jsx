@@ -4,7 +4,7 @@ import ImageCover from "./ImageCover";
 function RelatedPost({ posts }) {
   return (
     <div className=" my-16">
-      <p className="text-xl mb-4 mt-16">پست های مرتبط</p>
+      <p className="text-xl mb-4 mt-16 dark:text-slate-300">پست های مرتبط</p>
       <div className="grid gap-4 grid-cols-6">
         {posts.map((item) => {
           return (

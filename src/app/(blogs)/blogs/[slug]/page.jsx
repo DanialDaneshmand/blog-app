@@ -1,54 +1,35 @@
-"use client";
 
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import RelatedPosts from "../_components/RelatedPosts";
 import PostComments from "../_components/comment/PostComments";
-import { getPostBySlug, getPosts } from "@/services/postServices";
-import useGetOnePost from "@/hooks/useGetOnePost";
-import { useEffect, useState } from "react";
-import http from "@/services/httpServices";
+import { getPostBySlugApi, getPosts } from "@/services/postServices";
+import { notFound } from "next/navigation";
 
 // export const dynamicParams = false;
 
-// export async function generateStaticParams() {
-//   const { posts } = await getPosts();
-//   const slugs = posts.map((item) => {
-//     slug: item.slug;
-//   });
-//   return slugs;
-// }
+export async function generateStaticParams() {
+  const { posts } = await getPosts();
+  const slugs = posts.map((item) => {
+    slug: item.slug;
+  });
+  return slugs;
+}
 
-// export async function generateMetadata({ params, searchParams }, parent) {
-//   const post = await getPostBySlug(params.slug);
+export async function generateMetadata({ params, searchParams }, parent) {
+  const post = await getPostBySlugApi(params.slug);
 
-//   return {
-//     title: post.title,
-//   };
-// }
+  return {
+    title: post.title,
+  };
+}
 
-function SinglePost({ params }) {
-  // const post = await getPostBySlug(params.slug);
-  // const {data,isLoading} = useGetOnePost();
-  const [post, setPost] = useState();
-
-  useEffect(() => {
-    const getOnePost = async () => {
-      try {
-        const { data } = await http.get(`/post/slug/${params.slug}`);
-        const { post } = data.data;
-        console.log(post);
-        setPost(post);
-      } catch (error) {
-        console.log(error?.response?.data?.message);
-      }
-    };
-    getOnePost();
-  }, []);
+async function SinglePost({ params }) {
+  const {post} = await getPostBySlugApi(params.slug);
+  if(!post) notFound()
   return (
     post && (
-      <div className="text-slate-500 max-w-screen-md mx-auto py-8 space-y-3">
-        <h1 className="text-slate-700 text-xl sm:text-2xl font-bold">
+      <div className="text-slate-500 dark:text-slate-300 max-w-screen-md mx-auto py-8 space-y-3">
+        <h1 className="text-slate-700 dark:text-slate-300 text-xl sm:text-2xl font-bold">
           {post.title}
         </h1>
         <p className=" text-sm ">{post.briefText}</p>
